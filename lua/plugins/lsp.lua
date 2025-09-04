@@ -8,9 +8,9 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-    -- require("mason-lspconfig").setup({
-    --     ensure_installed = { "lua_ls", "ts_ls" } 
-    -- })
+    require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "ts_ls" } 
+    })
     end,
   },
 
@@ -37,12 +37,12 @@ return {
         end
 
         -- TypeScript/JavaScript LSP
-        -- lspconfig.ts_ls.setup({
-        --     root_dir = function(fname)
-        --         local root = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")(fname)
-        --         return root
-        --     end
-        -- })
+        lspconfig.ts_ls.setup({
+            root_dir = function(fname)
+                local root = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")(fname)
+                return root
+            end
+        })
         --lspconfig.denols.setup({
         --    root_dir = function(fname)
         --        local root = lspconfig.util.root_pattern("deno.json")(fname)
